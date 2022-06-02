@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Generated Route{% endblock %}
+
+{% block content %}
+
+
+    <div class = "container">
+        <br/>
+        <h1>Here is your route!!</h1>
+        <p1>Please follow all street and trail regulations!</p1>
+        <br></br> 
+        Starting and Ending Coordinates: {{ coordinates }}.
+        <br/>
+        Running for {{distance}} meters.
+        <br/>
+        Minimizing street crossings: {{ street_crossing }}.
+    </div>
+    <br/>
+    <br/>
+    {% include 'run.html' %}
+
+{% endblock %}
