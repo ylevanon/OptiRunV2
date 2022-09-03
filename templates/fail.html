@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Preferences for Route{% endblock %}
+
+{% block content %}
+    <div class = "container">
+        <br/>
+        <h1>Input your user preferences!</h1>
+        <h2>{{error_statement}}</h2>
+        <p1>This is an optimization model that will choose the best
+    running route based on YOUR preferences. Enjoy!</p1>
+        <br></br>
+        <form action="/route" method="POST">
+         <!-- Location Label  -->
+         <div class="mb-3">
+            <label for="address" class="form-label" name="address"> Your location: {{address}}</label>
+          </div>
+        <!-- Latitude -->
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="latitude" aria-describedby="emailHelp" value={{latitude}}  name="latitude">
+            </div>
+        <!-- Longitude -->
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="longitude" aria-describedby="emailHelp" value = {{longitude}} name="longitude">
+            </div>
+            <!-- Distance textbox input  -->
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Running Route Distance (meters)</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="distance (meters)" name="distance">
+              </div>
+            <!-- Checkbox for minimize street crossings  -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="street_crossing">
+              <label class="form-check-label" for="exampleCheck1">Minimize Street Crossings?</label>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+
+    </div>
+    </br>
+{% include 'gmap.html' %}
+
+{% endblock %}

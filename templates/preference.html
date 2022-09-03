@@ -5,27 +5,26 @@
     <div class = "container">
         <br/>
         <h1>Input your user preferences!</h1>
-        <p1>This is an optimization model that will choose the best
-    running route based on YOUR preferences. Enjoy!</p1>
+        <h2><FONT COLOR=red>{{error_statement}}</FONT></h2>
         <br></br>
         <form action="/route" method="POST">
-            <!-- Coordinates textbox input  -->
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Enter Latitude Here</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="latitude" name="latitude">
-              <!-- user help text here -->
-              <div id="emailHelp" name="street_crossings" class="form-text">In this format: (latitude, longitude)</div>
+         <!-- Location Label  -->
+         <div class="mb-3">
+            <label for="address" class="form-label" name="address"> Your location: {{address}}</label>
+            <input type="hidden" class="form-control" id="address" aria-describedby="emailHelp" value="{{address}}"  name="address">
+          </div>
+        <!-- Latitude -->
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="latitude" aria-describedby="emailHelp" value={{latitude}}  name="latitude">
             </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Enter Longitude Here</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="longitude" name="longitude">
-              <!-- user help text here -->
-              <div id="emailHelp" name="street_crossings" class="form-text">In this format: (latitude, longitude)</div>
+        <!-- Longitude -->
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="longitude" aria-describedby="emailHelp" value = {{longitude}} name="longitude">
             </div>
             <!-- Distance textbox input  -->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Running Route Distance (meters)</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="distance (meters)" name="distance">
+                <label for="exampleInputEmail1" class="form-label">Please type in miles the distance you would like to run. Please give the solver a minute to generate your adventure.</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="distance (miles)" name="distance">
               </div>
             <!-- Checkbox for minimize street crossings  -->
             <div class="mb-3 form-check">
@@ -34,9 +33,9 @@
             </div>
             <button type="submit" class="btn btn-secondary">Submit</button>
         </form>
-
+      </br>
     </div>
-    </br>
+    
 {% include 'gmap.html' %}
 
 {% endblock %}

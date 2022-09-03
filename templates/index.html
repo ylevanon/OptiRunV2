@@ -7,12 +7,22 @@
     <div class = "container">
         <br/>
         <h1>Welcome to Opti-Run!</h1>
+        <h2><FONT COLOR=red>{{error_statement}}</FONT></h2>
         <p1>This is an optimization model that will choose the best
     running route based on YOUR preferences. Enjoy!</p1>
         <!-- button -->
         <br></br>
-        <p align="center"><a href="preference" ><button class="button1" style="height:100px;width:150px">Choose Starting Location</button></a></p>
-    
-    </div>
 
+        <!-- figure out how to link the textbox content to a variable AND in this line below this comment figure out how to pack it into the request body-->
+        <form action="/preference" method="POST">
+            <!-- Location textbox input  -->
+            <div class="mb-3">
+                <label for="Location1" class="form-label">Type your starting location address.</label>
+                <input type="text" class="form-control" id="Location1" aria-describedby="Location1" placeholder="Type your starting location" name="address">
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+        <br/>
+    </div>
+{% include 'world_map.html' %}
 {% endblock %}

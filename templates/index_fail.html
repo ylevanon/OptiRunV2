@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Opti-Run{% endblock %}
+
+{% block content %}
+
+
+    <div class = "container">
+        <br/>
+        <h1>Welcome to Opti-Run!</h1>
+        <h2>{{error_statements}}</h2>
+        <p1>This is an optimization model that will choose the best
+    running route based on YOUR preferences. Enjoy!</p1>
+        <!-- button -->
+        <br></br>
+
+        <!-- figure out how to link the textbox content to a variable AND in this line below this comment figure out how to pack it into the request body-->
+        <form action="/preference" method="POST">
+            <!-- Location textbox input  -->
+            <div class="mb-3">
+                <label for="Location1" class="form-label">Type your starting location.</label>
+                <input type="text" class="form-control" id="Location1" aria-describedby="Location1" placeholder="Type your starting location" name="address">
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+    </div>
+{% include 'gmap.html' %}
+{% endblock %}
