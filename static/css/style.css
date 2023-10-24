@@ -1,0 +1,36 @@
+.bg-img {
+    background-image: url('../runner_small.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.custom-padding {
+    padding-top: 160px;
+    /* Adjust this value to control the amount of padding */
+}
+
+
+.error-text {
+    color: red;
+}
+
+
+
+.btn-teal {
+    background-color: teal;
+    color: white;
+    font-size: large;
+}
+
+
+.position-relative {
+    position: relative;
+}
+
+.custom-larger-pill {
+    font-size: 1.2rem;
+    /* Adjust the font size as needed */
+    padding: 0.75rem 1.5rem;
+    /* Adjust the padding as needed */
+}

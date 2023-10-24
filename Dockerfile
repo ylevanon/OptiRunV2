@@ -1,7 +1,25 @@
-FROM python:3.7-alpine
+FROM gurobi/python:10.0.3
 
-ADD main.py .
+# Set the application directory
+WORKDIR /OptiRun
 
-RUN pip install pandas
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libgdal-dev && \
+    rm -rf /var/lib/apt/lists/*
 
-CMD ["python", "./main.py"]
+# Copy the application code
+COPY . .
+
+# Install Python dependencies
+RUN python -m venv venv && \
+    . venv/bin/activate && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Set environment variables
+ENV VIRTUAL_ENV=/OptiRun/venv
+ENV GRB_LICENSE_FILE=/OptiRun/gurobi.lic
+ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
+
+# Execute the code
+CMD ["python", "-u", "run.py"]

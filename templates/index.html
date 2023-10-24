@@ -4,25 +4,66 @@
 {% block content %}
 
 
-    <div class = "container">
-        <br/>
-        <h1>Welcome to Opti-Run!</h1>
-        <h2><FONT COLOR=red>{{error_statement}}</FONT></h2>
-        <p1>This is an optimization model that will choose the best
-    running route based on YOUR preferences. Enjoy!</p1>
-        <!-- button -->
-        <br></br>
+<div class="container">
+    <div class="container text-center">
 
-        <!-- figure out how to link the textbox content to a variable AND in this line below this comment figure out how to pack it into the request body-->
-        <form action="/preference" method="POST">
-            <!-- Location textbox input  -->
-            <div class="mb-3">
-                <label for="Location1" class="form-label">Type your starting location address.</label>
-                <input type="text" class="form-control" id="Location1" aria-describedby="Location1" placeholder="Type your starting location" name="address">
-            </div>
-            <button type="submit" class="btn btn-secondary">Submit</button>
-        </form>
-        <br/>
+        <h2 class="error-text">{{ error_statement }}</h2>
     </div>
-{% include 'world_map.html' %}
+
+    <!-- Image with Background and Button -->
+    <div class="container-fluid bg-img">
+        <div class="container text-center text-white py-5 ">
+            <h1 class="mt-5 custom-padding">Explore Opti-Run</h1>
+            <p class="mb-4">Discover the perfect running routes with just a few clicks.</p>
+            <a href="/input"" class=" btn btn-teal rounded-pill custom-larger-pill">Get
+                Started</a>
+        </div>
+    </div>
+    <hr>
+    <div id="tryagain" class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-route fa-3x mb-3" style="color: teal;"></i>
+                    <h5 class="card-title">Personalized Routes</h5>
+                    <p class="card-text">Tailored to you and your dog's preferences.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-binoculars fa-3x mb-3" style="color: teal;"></i>
+                    <h5 class="card-title">Discover Scenic Spots</h5>
+                    <p class="card-text">Explore new scenic spots in your neighborhood.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-paw fa-3x mb-3" style="color: teal;"></i>
+                    <h5 class="card-title">Stay Active with Your Pet</h5>
+                    <p class="card-text">Enjoy quality time with your furry friend.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="container text-center">
+            <i class="fas fa-running fa-4x mb-3" style="color: teal;"></i>
+            <h2 class="mb-3">Linear Programming for Runners</h2>
+            <h2 class="error-text">{{ error_statement }}</h2>
+            <p class="lead text-muted">
+                Planning the perfect running route tailored to your preferred distance and starting location can be a
+                challenge. That's where Opti-Run, an innovative linear programming model comes in. We've created a
+                one-of-a-kind solution that takes your running preferences as parameters and generates the optimal
+                closed-loop route from your desired location.
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}

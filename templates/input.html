@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Opti-Run{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Search Bar + Map Section -->
+        <div class="col-md-6">
+            <div id="map" style="height: 400px;"></div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="col-md-6">
+            <form method="post">
+                <!-- Your form fields go here -->
+                <div class="mb-3">
+                    <label for="address">Search Address:</label>
+                    <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <label for="distance">Running Distance:</label>
+                    <input type="text" class="form-control" id="distance" name="distance">
+                </div>
+                <div class="mb-3">
+                    <label for="terrain">Terrain Type:</label>
+                    <select class="form-select" id="terrain" name="terrain">
+                        <option value="urban">Urban</option>
+                        <option value="park">Park</option>
+                        <option value="trail">Trail</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="difficulty">Difficulty Level:</label>
+                    <select class="form-select" id="difficulty" name="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="challenging">Challenging</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="surface">Surface Type:</label>
+                    <select class="form-select" id="surface" name="surface">
+                        <option value="pavement">Pavement</option>
+                        <option value="gravel">Gravel</option>
+                        <option value="dirt">Dirt</option>
+                    </select>
+                </div>
+                <!-- Add more form fields as needed -->
+                <button type="submit" class="btn btn-teal rounded-pill custom-larger-pill">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- Include external libraries -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuW1F8SftPkmMN-qOEweDpD6Sbf1bL31k&libraries=places&callback=initMap"></script>
+
+
+<!-- Include Leaflet library -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Include your custom scripts -->
+<script src="../static/your-map-script.js"></script>
+
+
+{% endblock %}

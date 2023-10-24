@@ -1,0 +1,14 @@
+setup:
+  addons:
+    - plan: heroku-redis
+      as: REDIS
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: 
+    commmand: "python","-u", "app.py"
+  worker:
+    command:
+      - python -u worker.py
+    image: web
